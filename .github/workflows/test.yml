@@ -12,11 +12,11 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Building the project
-        run: make docker/build
+      - name: Installing the project
+        run: make docker/install
 
-      - name: Running lint/bandit/check-packages
-        run: make docker/verify
+      - name: Running Lint
+        run: make docker/lint
 
       - name: Running tests
         run: make docker/test
