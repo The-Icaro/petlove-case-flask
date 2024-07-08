@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+  petlove-case-flask:
+    tty: true
+    image: "petlove-case-flask"
+    stdin_open: true
+    build:
+      context: .
+      target: "development"
+    volumes:
+      - ".:/src"
+    env_file: .env
