@@ -14,7 +14,7 @@ MAIN_ENTRYPOINT="src/main.py"
 # COMMANDS TO RUN LOCALLY
 ################################
 
-local/install: generate-default-env-file
+local/install:
 	poetry install
 
 local/tests:
@@ -27,7 +27,7 @@ local/lint/fix:
 	poetry run ruff . --fix
 
 local/run:
-	poetry run python ${MAIN_ENTRYPOINT}
+	poetry run python -m flask --app run.py run
 
 ############################################
 # COMMANDS TO RUN USING DOCKER (RECOMMENDED)
