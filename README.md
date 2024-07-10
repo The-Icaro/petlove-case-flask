@@ -9,6 +9,7 @@ This project is part of a recruitment case for Petlove, wich involves a Flask ap
 - [Python 3.11](https://www.python.org/downloads/release/python-311/) - **pre-requisite**
 - [Docker](https://www.docker.com/get-started) - **pre-requisite**
 - [Docker Compose](https://docs.docker.com/compose/) - **pre-requisite**
+- [Gemini Api Key](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br) - **pre-requisite**
 - [Pipenv](https://github.com/pypa/pipenv)
 - [Flask](https://flask.palletsprojects.com/en)
 
@@ -87,12 +88,15 @@ make local/tests
 
 _Please, check all available commands in the [Makefile](Makefile) for more information_.
 
-### Project Details
+## Project Details
 
 _The project will be running at `http://localhost:5000/`_
 
 The `entrypoint` of this project is the `run.py` file on the root path.
 
+### Gemini instead of OpenAI
+
+For the project, I will be using the Gemini API instead of OpenAI because Gemini offers a free tier. This allows for cost-effective experimentation and development.
 
 ### Monitoring and Observability
 
