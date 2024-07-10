@@ -11,16 +11,16 @@ def genai_instance(app):
         genai = GenerativeAI()
         yield genai
 
-def test_ask_method(genai_instance):
-    with patch('google.generativeai.GenerativeModel') as mock_generative_model:
-        mock_model_instance = MagicMock()
-        mock_generate_content = MagicMock()
-        mock_generate_content.text = 'Mocked response'
+@patch('google.generativeai.GenerativeModel')
+def test_ask_method(mock_generative_model, genai_instance):
+    mock_model_instance = MagicMock()
+    mock_generate_content = MagicMock()
+    mock_generate_content.text = 'Mocked response'
 
-        mock_model_instance.generate_content.return_value = mock_generate_content
-        mock_generative_model.return_value = mock_model_instance
+    mock_model_instance.generate_content.return_value = mock_generate_content
+    mock_generative_model.return_value = mock_model_instance
 
-        response = genai_instance.ask('Test question')
+    response = genai_instance.ask('Test question')
 
-        mock_generative_model.assert_called_once()
-        assert response == mock_generate_content.text
+    mock_generative_model.assert_called_once()
+    assert response == mock_generate_content.text
