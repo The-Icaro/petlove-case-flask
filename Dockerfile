@@ -2,6 +2,8 @@ FROM python:3.11-alpine AS base
 
 WORKDIR /src
 
+EXPOSE 5000
+
 COPY pyproject.toml .
 RUN pip install poetry
 
@@ -14,5 +16,7 @@ COPY . .
 
 FROM dependencies AS production
 COPY src src
-COPY settings.conf src
-COPY logging.conf src
+COPY settings.conf .
+COPY logging.conf .
+COPY .prometheus .
+COPY run.py .
