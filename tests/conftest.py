@@ -1,4 +1,5 @@
 import pytest
+import prometheus_client
 
 from src import create_app
 
@@ -10,6 +11,8 @@ def app():
         "TESTING": True,
         "GENAI_API_KEY": "",
     })
+
+    prometheus_client.REGISTRY = prometheus_client.CollectorRegistry(auto_describe=True)
 
     yield app
 
