@@ -1,5 +1,5 @@
-import pytest
 import prometheus_client
+import pytest
 
 from src import create_app
 
