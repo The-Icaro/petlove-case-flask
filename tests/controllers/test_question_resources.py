@@ -1,4 +1,5 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 
 @patch('src.controllers.question_controller.QuestionService')
 def test_post_question_and_answer(mock_service, client):
