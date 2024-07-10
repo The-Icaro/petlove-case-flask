@@ -6,4 +6,4 @@ health_namespace = Namespace("health", description='Health check operations')
 class HealthResource(Resource):
     @health_namespace.doc("get_health")
     def get(self):
-        return {"status": "up"}, 200
+        return {"status": "up"}
