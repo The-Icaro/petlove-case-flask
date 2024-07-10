@@ -33,7 +33,7 @@ local/run:
 # COMMANDS TO RUN USING DOCKER (RECOMMENDED)
 ############################################
 
-docker/install:
+docker/install: generate-default-env-file
 	docker-compose build ${APP_NAME}
 
 docker/up:
