@@ -3,6 +3,7 @@ from logging.config import fileConfig as logConfig
 
 from flask import Flask
 from flask_restx import Api
+from prometheus_flask_exporter import PrometheusMetrics
 
 from src.config import Config
 from src.controllers import register_namespaces
@@ -20,6 +21,9 @@ def create_app():
       description='Petlove API Documentation',
       prefix='/api/ecommerce/v1',
     )
+
+    metrics = PrometheusMetrics(app)
+    metrics.info('Petlove_API', 'Petlove API', version='1.0')
 
     api.init_app(app)
 

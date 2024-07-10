@@ -10,3 +10,23 @@ services:
     volumes:
       - ".:/src"
     env_file: .env
+    command: "poetry run python -m flask --app run.py run --host=0.0.0.0"
+    ports:
+      - "5000:5000"
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ".prometheus/config.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - petlove-case-flask
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - petlove-case-flask
+      - prometheus
