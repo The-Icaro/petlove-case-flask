@@ -1,7 +1,8 @@
 import os
 
-from flask import request, current_app as app
-from flask_restx import Namespace, Resource, reqparse, abort
+from flask import current_app as app
+from flask import request
+from flask_restx import Namespace, Resource, abort, reqparse
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
