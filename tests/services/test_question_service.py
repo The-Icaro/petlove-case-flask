@@ -20,3 +20,11 @@ def test_ask_question(question_service, mock_genai_client):
 
     assert response == mock_genai_client.ask.return_value
     mock_genai_client.ask.assert_called_once_with(question)
+
+def test_ask_question_with_file(question_service, mock_genai_client):
+    question = "Test question"
+    file_path = "test.txt"
+    response = question_service.ask_question_with_file(question, file_path)
+
+    assert response == mock_genai_client.ask_with_file.return_value
+    mock_genai_client.ask_with_file.assert_called_once_with(question, file_path)

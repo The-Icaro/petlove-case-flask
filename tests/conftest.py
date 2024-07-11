@@ -10,6 +10,7 @@ def app():
     app.config.update({
         "TESTING": True,
         "GENAI_API_KEY": "",
+        "UPLOAD_FOLDER": "./temp-files-test"
     })
 
     prometheus_client.REGISTRY = prometheus_client.CollectorRegistry(auto_describe=True)
