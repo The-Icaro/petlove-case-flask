@@ -14,6 +14,10 @@ class PostQuestion:
         })
 
     @staticmethod
+    def to_parser():
+        return {'question': fields.String(required=True, description='The question text')}
+
+    @staticmethod
     def from_dict(data):
         return PostQuestion(data['question'])
 

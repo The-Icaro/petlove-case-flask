@@ -11,6 +11,10 @@ def test_from_dict_post_question():
     post_question = PostQuestion.from_dict({'question': 'Test'})
     assert post_question.question == 'Test'
 
+def test_to_parser_post_question():
+    post_question_parser = PostQuestion.to_parser()
+    assert post_question_parser.get('question') is not None
+
 def test_api_model_post_question():
     api = Mock()
     api.model = Mock()

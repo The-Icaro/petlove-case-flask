@@ -23,12 +23,24 @@ _Please pay attention on **pre-requisites** resources that you must install/conf
 - `/metrics`: Prometheus metrics route
 - `/api/ecommerce/v1/health`: Verify sure the application is up
 - `/api/ecommerce/v1/question_and_answer`: Route to make a question to AI assistant
+- `/api/ecommerce/v1/question_and_answer/file_context`: Route to make a question to AI assistant but with context based on a .txt file
 
 #### Route Params
 
 `/api/ecommerce/v1/question_and_answer`: This route have 1 param
 
 - question: Is the question which the AI assistant will respond to.
+
+#### Route Params
+
+`/api/ecommerce/v1/question_and_answer/file_context`: This route have 2 param
+
+- question: Is the question which the AI assistant will respond to.
+- file: plain text (.txt) file, where the AI assistant will use as context with the question.
+
+For testing, you can use the .txt file on the .doc_test diretory:
+
+![Question and Answer](images/question_and_answer_file.png)
 
 ### Swagger Page
 
