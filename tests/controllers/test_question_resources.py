@@ -40,7 +40,8 @@ def test_post_question_and_answer_with_file(mock_service, client):
     try:
       with open(temp_file.name, 'rb') as file:
           data = {
-              'file': (file, temp_file.name)
+              'file': (file, temp_file.name),
+              'question': 'Test question'
           }
           response = client.post(route, data=data, content_type='multipart/form-data')
 
@@ -67,7 +68,8 @@ def test_error_post_question_and_answer_with_file(mock_service, client):
 
     with open(temp_file.name, 'rb') as file:
         data = {
-            'file': (file, temp_file.name)
+            'file': (file, temp_file.name),
+            'question': 'Test question'
         }
         response = client.post(route, data=data, content_type='multipart/form-data')
 
